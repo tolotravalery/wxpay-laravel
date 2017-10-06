@@ -19,3 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/payment/wechat', 'PayementController@wechat')->name('wechat');
+
+Route::get('/payment/add', 'PayementController@add')->name('add');
+
+
