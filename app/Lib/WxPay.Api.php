@@ -368,7 +368,7 @@ class WxPayApi
         $inputObj->SetMch_id(WxPayConfig::MCHID);//商户号
         $inputObj->SetTime_stamp(time());//时间戳
         $inputObj->SetNonce_str(self::getNonceStr());//随机字符串
-
+//        $inputObj->SetRefund_fee('100');
         $inputObj->SetSign();//签名
 
         return $inputObj->GetValues();

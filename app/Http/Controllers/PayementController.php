@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Payement;
 use Illuminate\Http\Request;
 use App\NativePay;
 
@@ -15,10 +16,9 @@ class PayementController extends Controller
         $writer = new \BaconQrCode\Writer($renderer);
         $image_name = strtotime('now');
         $notify = new NativePay();
-        $url1 = $notify->GetPrePayUrl("123456789");
-//        dd(urlencode($url1));
+        $payement = Payement::create();
+        $url1 = $notify->GetPrePayUrl($payement->id);
         $writer->writeFile($url1, 'public/qr_code/' . $image_name . '.png');
         return view('qr-code')->with('image', $image_name);
-
     }
 }
